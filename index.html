@@ -18,6 +18,7 @@
       referrerpolicy="no-referrer"
     ></script>
     <script defer src="./JS/accordion.js"></script>
+	 <script defer src="./JS/cards.js"></script>
     <title>RichBrains app</title>
   </head>
   <body>
@@ -57,7 +58,57 @@
       </script>
       <nav class="accordion" id="accordion"></nav>
 
-      <section class="cards">Cards</section>
+      <script id="cards-template" type="text/x-handlebars-template">
+        {{#each cardsList}}
+          <div class='card'>
+            <div class='card__front'>
+              <div class='front__content'>
+                <img
+                  src={{frontSide.logo}}
+                  alt='embatur icon'
+                  class='front__logo'
+                />
+                <h3 class='front__category'>{{frontSide.category}}</h3>
+                <h2 class='front__profession'>{{frontSide.profession}}</h2>
+                <div class='front__education'>
+                  <img
+                    src='./assets/icons/education_card.svg'
+                    alt='education icon'
+                  />
+                  <h4>{{frontSide.educationLevel}}</h4>
+                </div>
+                <div class='front__frequency'>
+                  <img
+                    src='./assets/icons/schedule_card.svg'
+                    alt='schedule icon'
+                  />
+                  <h4>{{frontSide.frequency}}</h4>
+                </div>
+                <button
+                  type='button'
+                  class='front__button'
+                >{{frontSide.buttonTitle}}</button>
+              </div>
+            </div>
+            <div class='card__back'>
+              <div class='back__content'>
+                <h3 class='back__direction'>{{backSide.direction}}</h3>
+                <h4 class='back__duration'>{{backSide.duration.title}}</h4>
+                <h5 class='back__min-duration'>{{backSide.duration.min}}</h5>
+                <h5 class='back__max-duration'>{{backSide.duration.max}}</h5>
+                <h4 class='back__start'>{{backSide.start.title}}</h4>
+                <h5 class='back__start-dates'>{{backSide.start.dates}}</h5>
+                <h2 class='back__cost'>{{backSide.cost}}</h2>
+                <button
+                  type='button'
+                  class='back__button'
+                >{{backSide.buttonTitle}}</button>
+              </div>
+            </div>
+          </div>
+        {{/each}}
+      </script>
+      <section class="cards" id="cards"></section>
     </main>
   </body>
 </html>

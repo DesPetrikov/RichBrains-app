@@ -1,7 +1,7 @@
 @import './mixins';
 
 .accordion {
-  width: 286px;
+	flex: 0 0 286px;
   background-color: white;
   &__header {
     position: relative;

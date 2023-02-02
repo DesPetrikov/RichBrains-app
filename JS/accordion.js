@@ -92,13 +92,12 @@ const accordion = {
       ],
     },
   ],
-
   mainBtnTitle: 'show all programmes',
 };
 
-const template = Handlebars.compile(
+const accordionTemplate = Handlebars.compile(
   document.getElementById('accordion-template').innerHTML
 );
 
-const filled = template(accordion, { noEscape: true });
-document.getElementById('accordion').innerHTML = filled;
+const accordionFilled = accordionTemplate(accordion, { noEscape: true });
+document.getElementById('accordion').innerHTML = accordionFilled;

@@ -7,11 +7,11 @@ const cards = {
         category: 'Business & Management',
         profession: 'Master of Business Administration (CMI)',
 		  educationLevel: 'Postgraduate',
-		  frequency: 'Every 12 weeks ',
+		  frequency: 'Every 12 weeks',
 		  buttonTitle: 'More Info',
       },
 		backSide: {
-			profession: 'MSc Data Analytics and Information Systems Management',
+			direction: 'MSc Data Analytics and Information Systems Management',
 			duration: {
 				title: 'Duration:',
 				min: 'Minimum: 18 months',
@@ -32,11 +32,11 @@ const cards = {
         category: 'Business & Management',
         profession: 'Master of Business Administration (CMI)',
 		  educationLevel: 'Postgraduate',
-		  frequency: 'Every 12 weeks ',
+		  frequency: 'Every 12 weeks',
 		  buttonTitle: 'More Info',
       },
 		backSide: {
-			profession: 'MSc Data Analytics and Information Systems Management',
+			direction: 'MSc Data Analytics and Information Systems Management',
 			duration: {
 				title: 'Duration:',
 				min: 'Minimum: 18 months',
@@ -57,11 +57,11 @@ const cards = {
         category: 'Business & Management',
         profession: 'Master of Business Administration (CMI)',
 		  educationLevel: 'Postgraduate',
-		  frequency: 'Every 12 weeks ',
+		  frequency: 'Every 12 weeks',
 		  buttonTitle: 'More Info',
       },
 		backSide: {
-			profession: 'MSc Data Analytics and Information Systems Management',
+			direction: 'MSc Data Analytics and Information Systems Management',
 			duration: {
 				title: 'Duration:',
 				min: 'Minimum: 18 months',
@@ -82,11 +82,11 @@ const cards = {
         category: 'Business & Management',
         profession: 'Master of Business Administration (CMI)',
 		  educationLevel: 'Postgraduate',
-		  frequency: 'Every 12 weeks ',
+		  frequency: 'Every 12 weeks',
 		  buttonTitle: 'More Info',
       },
 		backSide: {
-			profession: 'MSc Data Analytics and Information Systems Management',
+			direction: 'MSc Data Analytics and Information Systems Management',
 			duration: {
 				title: 'Duration:',
 				min: 'Minimum: 18 months',
@@ -107,11 +107,11 @@ const cards = {
         category: 'Business & Management',
         profession: 'Master of Business Administration (CMI)',
 		  educationLevel: 'Postgraduate',
-		  frequency: 'Every 12 weeks ',
+		  frequency: 'Every 12 weeks',
 		  buttonTitle: 'More Info',
       },
 		backSide: {
-			profession: 'MSc Data Analytics and Information Systems Management',
+			direction: 'MSc Data Analytics and Information Systems Management',
 			duration: {
 				title: 'Duration:',
 				min: 'Minimum: 18 months',
@@ -132,11 +132,11 @@ const cards = {
         category: 'Business & Management',
         profession: 'Master of Business Administration (CMI)',
 		  educationLevel: 'Postgraduate',
-		  frequency: 'Every 12 weeks ',
+		  frequency: 'Every 12 weeks',
 		  buttonTitle: 'More Info',
       },
 		backSide: {
-			profession: 'MSc Data Analytics and Information Systems Management',
+			direction: 'MSc Data Analytics and Information Systems Management',
 			duration: {
 				title: 'Duration:',
 				min: 'Minimum: 18 months',
@@ -153,3 +153,10 @@ const cards = {
   ],
   loaderTitle: 'More programmes'
 };
+
+const cardsTemplate = Handlebars.compile(
+	document.getElementById('cards-template').innerHTML
+ );
+ 
+ const filledCards = cardsTemplate(cards);
+ document.getElementById('cards').innerHTML = filledCards;
