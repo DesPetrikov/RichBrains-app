@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles/styles.css" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"
+      integrity="sha512-RNLkV3d+aLtfcpEyFG8jRbnWHxUqVZozacROI4J2F1sTaDqo1dPQYs01OMi1t1w9Y2FdbSCDSQ2ZVdAC8bzgAg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script defer src="./JS/accordion.js"></script>
+    <title>RichBrains app</title>
+  </head>
+  <body>
+    <header class="content-wrapper header">
+      <h1 class="header_title">Find Your Course</h1>
+    </header>
+
+    <main class="content-wrapper main">
+      <script id="accordion-template" type="text/x-handlebars-template">
+        <header class='accordion__header'>
+          <label class='accordion__title'>
+            <input type='checkbox' id='acc-close' />
+            <img
+              src='./assets/icons/education.svg'
+              alt='education icon'
+              class='accordion__icon'
+            />
+            <h3>{{titleDesktop}}</h3>
+          </label>
+          <hr class='accordion__line' />
+        </header>
+        {{#each careerList}}
+          <div class='accordion__item'>
+            <input class='item__input' type='checkbox' id={{this.id}} />
+            <label class='item__title' for={{this.id}}>{{{title}}}</label>
+            <div class='item__content'>
+              {{#each subtitles}}
+                <button class='item__button'>{{subtitle}}</button>
+              {{/each}}
+            </div>
+          </div>
+        {{/each}}
+        <button
+          type='button'
+          class='accordion__main-button'
+        >{{mainBtnTitle}}</button>
+      </script>
+      <nav class="accordion" id="accordion"></nav>
+
+      <section class="cards">Cards</section>
+    </main>
+  </body>
+</html>

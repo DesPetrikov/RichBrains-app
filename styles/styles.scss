@@ -1,0 +1,31 @@
+@import './normalize';
+@import './variables';
+@import './header';
+@import './main';
+@import './accordion';
+
+@font-face {
+	font-family: "Helvetica";
+	font-style: normal;
+	font-weight: 400;
+	src: local("Helvetica"),
+		  url('../assets/fonts/Helvetica.ttf') format("ttf"),
+ }
+ 
+
+*, *:after, *:before {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+body {
+	background-color: $bg-color;
+}
+.content-wrapper{
+	max-width: 1192px;
+	margin-left: auto;
+	margin-right: auto;
+}
+// font-family: 'Arimo', sans-serif;
+// font-family: 'Playfair Display', serif;
+

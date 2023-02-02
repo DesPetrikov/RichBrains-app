@@ -1,0 +1,8 @@
+@mixin textStyle($font, $generic, $weight, $size, $height, $spacing){
+	font-family: $font, $generic;
+	font-weight: $weight;
+	font-size: $size;
+	line-height: $height;
+	letter-spacing: $spacing;
+	color: black;
+}
