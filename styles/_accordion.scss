@@ -28,13 +28,13 @@
     border-top: 1px solid #ececec;
     border-bottom: 1px solid #ececec;
     margin-bottom: 20px;
-   //  padding-bottom: 6px;
-	 padding-top: 12px;
+    //  padding-bottom: 6px;
+    padding-top: 12px;
     .accordion__item {
       padding-left: 10px;
       padding-right: 7px;
-		padding-top: 12px;
-		padding-bottom: 12px;
+      padding-top: 12px;
+      padding-bottom: 12px;
       .item__title {
         position: relative;
         display: block;
@@ -60,7 +60,7 @@
       .item__content {
         display: none;
         margin-top: 12px;
-		 
+
         .item__button {
           all: unset;
           display: block;
@@ -69,6 +69,12 @@
           cursor: pointer;
           @include textStyle('Helvetica', sans-serif, 400, 14px, 22px, normal);
           transition: background 0.5s ease-out;
+
+          &_active,
+          &_active:hover {
+            background-color: rgb(37, 150, 9, 0.15);
+				color: #259609;
+          }
           &:hover {
             border-radius: 3px;
             background-color: #f2f2f2;
