@@ -329,12 +329,12 @@ template {
 
 .accordion {
   flex: 0 0 286px;
-  background-color: white;
+  height: 100%;
+  padding: 30px 15px 30px 15px;
+  background-color: #ffffff;
 }
 .accordion__header {
   position: relative;
-  margin-top: 30px;
-  padding: 0 15px;
 }
 .accordion__header .accordion__title {
   display: flex;
@@ -359,15 +359,19 @@ template {
   width: 0;
   height: 0;
 }
-.accordion__line {
-  margin-bottom: 22px;
-  border-color: #ececec;
+.accordion .accordion__items {
+  border-top: 1px solid #ececec;
+  border-bottom: 1px solid #ececec;
+  margin-bottom: 20px;
+  padding-top: 12px;
 }
-.accordion__item {
-  padding-left: 28px;
-  padding-right: 15px;
+.accordion .accordion__items .accordion__item {
+  padding-left: 10px;
+  padding-right: 7px;
+  padding-top: 12px;
+  padding-bottom: 12px;
 }
-.accordion__item .item__title {
+.accordion .accordion__items .accordion__item .item__title {
   position: relative;
   display: block;
   font-family: "Helvetica", sans-serif;
@@ -379,11 +383,11 @@ template {
   cursor: pointer;
   transition: background 0.5s ease-out;
 }
-.accordion__item .item__title:hover {
+.accordion .accordion__items .accordion__item .item__title:hover {
   border-radius: 3px;
   background-color: #f2f2f2;
 }
-.accordion__item .item__title::after {
+.accordion .accordion__items .accordion__item .item__title::after {
   content: "";
   display: block;
   position: absolute;
@@ -394,13 +398,16 @@ template {
   border-width: 0 1px 1px 0;
   transform: rotate(-45deg) translateY(-50%);
 }
-.accordion__item .item__content {
+.accordion .accordion__items .accordion__item .item__content {
   display: none;
+  margin-top: 12px;
 }
-.accordion__item .item__content .item__button {
+.accordion .accordion__items .accordion__item .item__content .item__button {
   all: unset;
+  display: block;
   width: 100%;
-  padding: 12px 7px 12px 13px;
+  padding: 10px 0px 10px 12px;
+  cursor: pointer;
   font-family: "Helvetica", sans-serif;
   font-weight: 400;
   font-size: 14px;
@@ -409,24 +416,25 @@ template {
   color: #3E3E3E;
   transition: background 0.5s ease-out;
 }
-.accordion__item .item__content .item__button:hover {
+.accordion .accordion__items .accordion__item .item__content .item__button:hover {
   border-radius: 3px;
   background-color: #f2f2f2;
 }
-.accordion__item .item__input {
+.accordion .accordion__items .accordion__item .item__input {
+  position: absolute;
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
   width: 0;
   height: 0;
 }
-.accordion__item .item__input:checked ~ .item__content {
+.accordion .accordion__items .accordion__item .item__input:checked ~ .item__content {
   display: block;
 }
-.accordion__item .item__input:checked ~ .item__title {
+.accordion .accordion__items .accordion__item .item__input:checked ~ .item__title {
   color: #259609;
 }
-.accordion__item .item__input:checked ~ .item__title::after {
+.accordion .accordion__items .accordion__item .item__input:checked ~ .item__title::after {
   transform: rotate(45deg) translateY(-50%);
   border-color: #259609;
 }
@@ -445,6 +453,7 @@ template {
   letter-spacing: normal;
   color: #3E3E3E;
   color: #259609;
+  cursor: pointer;
 }
 
 .cards {
@@ -453,6 +462,26 @@ template {
   justify-content: space-between;
   align-content: flex-start;
   row-gap: 20px;
+}
+.cards .cards__loader {
+  flex: 0 0 100%;
+  margin-top: 20px;
+  text-align: center;
+}
+.cards .cards__loader .loader__text {
+  font-family: "Helvetica", sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 15px;
+  letter-spacing: normal;
+  color: #3E3E3E;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.cards .cards__loader .loader__icon {
+  margin-left: 5px;
+  vertical-align: bottom;
+  cursor: pointer;
 }
 
 .card {
@@ -554,6 +583,7 @@ template {
 }
 .card__front .front__content .front__button {
   background: #259609;
+  color: #ffffff;
 }
 .card__back {
   color: #ffffff;
@@ -612,6 +642,7 @@ template {
 }
 .card__back .back__content .back__button {
   background-color: #ffffff;
+  color: #259609;
 }
 
 @font-face {
@@ -625,12 +656,10 @@ template {
   padding: 0;
   margin: 0;
 }
-html {
-  /* overflow-x: hidden; */
-}
+
 body {
   background-color: #F7F7F7;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .content-wrapper {

@@ -1,7 +1,23 @@
+@import './mixins';
 .cards {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
-	align-content: flex-start;
-	row-gap: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: flex-start;
+  row-gap: 20px;
+  .cards__loader {
+    flex: 0 0 100%;
+    margin-top: 20px;
+    text-align: center;
+    .loader__text {
+      @include textStyle('Helvetica', sans-serif, 700, 14px, 15px, normal);
+      text-transform: uppercase;
+		cursor: pointer;
+    }
+    .loader__icon {
+      margin-left: 5px;
+      vertical-align: bottom;
+		cursor: pointer;
+    }
+  }
 }

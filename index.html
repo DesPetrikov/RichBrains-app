@@ -18,7 +18,7 @@
       referrerpolicy="no-referrer"
     ></script>
     <script defer src="./JS/accordion.js"></script>
-	 <script defer src="./JS/cards.js"></script>
+    <script defer src="./JS/cards.js"></script>
     <title>RichBrains app</title>
   </head>
   <body>
@@ -38,19 +38,20 @@
             />
             <h3>{{titleDesktop}}</h3>
           </label>
-          <hr class='accordion__line' />
         </header>
-        {{#each careerList}}
-          <div class='accordion__item'>
-            <input class='item__input' type='checkbox' id={{this.id}} />
-            <label class='item__title' for={{this.id}}>{{{title}}}</label>
-            <div class='item__content'>
-              {{#each subtitles}}
-                <button class='item__button'>{{subtitle}}</button>
-              {{/each}}
+        <div class='accordion__items'>
+          {{#each careerList}}
+            <div class='accordion__item'>
+              <input class='item__input' type='checkbox' id={{this.id}} />
+              <label class='item__title' for={{this.id}}>{{{title}}}</label>
+              <div class='item__content'>
+                {{#each subtitles}}
+                  <button class='item__button'>{{subtitle}}</button>
+                {{/each}}
+              </div>
             </div>
-          </div>
-        {{/each}}
+          {{/each}}
+        </div>
         <button
           type='button'
           class='accordion__main-button'
@@ -107,6 +108,10 @@
             </div>
           </div>
         {{/each}}
+        <div class='cards__loader'>
+          <span class='loader__text'>{{{loaderTitle}}}</span>
+          <img src={{loaderIcon}} class='loader__icon' alt='loader icon' />
+        </div>
       </script>
       <section class="cards" id="cards"></section>
     </main>

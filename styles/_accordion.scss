@@ -1,12 +1,12 @@
 @import './mixins';
 
 .accordion {
-	flex: 0 0 286px;
-  background-color: white;
+  flex: 0 0 286px;
+  height: 100%;
+  padding: 30px 15px 30px 15px;
+  background-color: #ffffff;
   &__header {
     position: relative;
-    margin-top: 30px;
-    padding: 0 15px;
     .accordion__title {
       display: flex;
       margin-bottom: 19px;
@@ -24,68 +24,76 @@
       }
     }
   }
-  &__line {
-    margin-bottom: 22px;
-    border-color: #ececec;
-  }
-  &__item {
-    padding-left: 28px;
-    padding-right: 15px;
-
-    .item__title {
-      position: relative;
-      display: block;
-      // padding: 20px 0;
-      @include textStyle('Helvetica', sans-serif, 700, 16px, 22px, normal);
-      cursor: pointer;
-      transition: background 0.5s ease-out;
-      &:hover {
-        border-radius: 3px;
-        background-color: #f2f2f2;
-      }
-      &::after {
-        content: '';
+  .accordion__items {
+    border-top: 1px solid #ececec;
+    border-bottom: 1px solid #ececec;
+    margin-bottom: 20px;
+   //  padding-bottom: 6px;
+	 padding-top: 12px;
+    .accordion__item {
+      padding-left: 10px;
+      padding-right: 7px;
+		padding-top: 12px;
+		padding-bottom: 12px;
+      .item__title {
+        position: relative;
         display: block;
-        position: absolute;
-        top: 50%;
-        right: 5px;
-        padding: 3px;
-        border: solid #3e3e3e;
-        border-width: 0 1px 1px 0;
-        transform: rotate(-45deg) translateY(-50%);
-      }
-    }
-    .item__content {
-      display: none;
-      // margin-top: -10px;
-      .item__button {
-        all: unset;
-        width: 100%;
-        padding: 12px 7px 12px 13px;
-        @include textStyle('Helvetica', sans-serif, 400, 14px, 22px, normal);
+        @include textStyle('Helvetica', sans-serif, 700, 16px, 22px, normal);
+        cursor: pointer;
         transition: background 0.5s ease-out;
         &:hover {
           border-radius: 3px;
           background-color: #f2f2f2;
         }
+        &::after {
+          content: '';
+          display: block;
+          position: absolute;
+          top: 50%;
+          right: 5px;
+          padding: 3px;
+          border: solid #3e3e3e;
+          border-width: 0 1px 1px 0;
+          transform: rotate(-45deg) translateY(-50%);
+        }
       }
-    }
-    .item__input {
-      appearance: none;
-      width: 0;
-      height: 0;
-      &:checked ~ .item__content {
-        display: block;
+      .item__content {
+        display: none;
+        margin-top: 12px;
+		 
+        .item__button {
+          all: unset;
+          display: block;
+          width: 100%;
+          padding: 10px 0px 10px 12px;
+          cursor: pointer;
+          @include textStyle('Helvetica', sans-serif, 400, 14px, 22px, normal);
+          transition: background 0.5s ease-out;
+          &:hover {
+            border-radius: 3px;
+            background-color: #f2f2f2;
+          }
+        }
       }
-      &:checked ~ .item__title {
-        color: #259609;
-      }
-      &:checked ~ .item__title::after {
-        transform: rotate(45deg) translateY(-50%);
-        border-color: #259609;
+      .item__input {
+        position: absolute;
+        appearance: none;
+        width: 0;
+        height: 0;
+        &:checked ~ .item__content {
+          display: block;
+        }
+        &:checked ~ .item__title {
+          color: #259609;
+        }
+        &:checked ~ .item__title::after {
+          transform: rotate(45deg) translateY(-50%);
+          border-color: #259609;
+        }
       }
     }
   }
+
   &__main-button {
     all: unset;
     padding: 15px 0;
@@ -96,5 +104,6 @@
     border-radius: 3px;
     @include textStyle('Helvetica', sans-serif, 700, 14px, 16px, normal);
     color: #259609;
+    cursor: pointer;
   }
 }

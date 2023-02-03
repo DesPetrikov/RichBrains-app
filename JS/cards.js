@@ -132,7 +132,7 @@ const cards = {
         category: 'Business & Management',
         profession: 'Master of Business Administration (CMI)',
 		  educationLevel: 'Postgraduate',
-		  frequency: 'Every 12 weeks',
+		  frequency: 'January, April, July, October, November',
 		  buttonTitle: 'More Info',
       },
 		backSide: {
@@ -151,7 +151,8 @@ const cards = {
 		}
     },
   ],
-  loaderTitle: 'More programmes'
+  loaderTitle: 'More programmes',
+  loaderIcon: '../assets/icons/refresh.svg'
 };
 
 const cardsTemplate = Handlebars.compile(
