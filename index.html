@@ -32,11 +32,11 @@
           <label class='accordion__title'>
             <input type='checkbox' id='acc-close' />
             <img
-              src='./assets/icons/education.svg'
+              src={{titleIcon}}
               alt='education icon'
               class='accordion__icon'
             />
-            <h3>{{titleDesktop}}</h3>
+            <h3 class='accordion__title-text'></h3>
           </label>
         </header>
         <div class='accordion__items'>
@@ -64,11 +64,14 @@
           <div class='card'>
             <div class='card__front'>
               <div class='front__content'>
-                <img
-                  src={{frontSide.logo}}
-                  alt='embatur icon'
-                  class='front__logo'
-                />
+                <div class='front__logo-block'>
+                  <button class='front__action-btn'></button>
+                  <img
+                    src={{frontSide.logo}}
+                    alt='embatur icon'
+                    class='front__logo'
+                  /></div>
+
                 <h3 class='front__category'>{{frontSide.category}}</h3>
                 <h2 class='front__profession'>{{frontSide.profession}}</h2>
                 <div class='front__education'>

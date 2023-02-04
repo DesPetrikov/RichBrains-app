@@ -7,26 +7,34 @@
 @import './card';
 
 @font-face {
-	font-family: "Helvetica";
-	font-style: normal;
-	font-weight: 400;
-	src: local("Helvetica"),
-		  url('../assets/fonts/Helvetica.ttf') format("ttf"),
- }
- 
+  font-family: 'Helvetica';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Helvetica'), url('../assets/fonts/Helvetica.ttf') format('ttf');
+}
 
-*, *:after, *:before {
-	box-sizing: border-box;
-	padding: 0;
-	margin: 0;
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 body {
-	background-color: $bg-color;
-	min-height: 100vh;
+  background-color: $bg-color-desktop;
+  min-height: 100vh;
+  @media screen and (max-width: 600px) {
+    background-color: $bg-color-mobile;
+  }
 }
-.content-wrapper{
-	max-width: 1192px;
-	margin-left: auto;
-	margin-right: auto;
+.content-wrapper {
+  max-width: 1440px;
+  padding-left: 122px;
+  padding-right: 126px;
+  margin-left: auto;
+  margin-right: auto;
+  @media screen and (max-width: 600px) {
+    width: 360px;
+    padding: 0px 15px 0 21px;
+  }
 }
-

@@ -167,10 +167,29 @@ const allCards = cardsContainer.querySelectorAll('.card');
 
 allCards.forEach((card, _, arr) => {
   card.addEventListener('click', () => {
-    if (!card.classList.contains('card_active')) {
-      card.classList.add('card_active');
-    } else {
-      card.classList.remove('card_active');
-    }
+    card.classList.toggle('card_active');
   });
+});
+
+const replacePrice = (cards) => {
+  allCards.forEach((card, idx) => {
+    const frequency = card.querySelector('.front__frequency');
+    const price = card.querySelector('.back__cost').innerHTML;
+    const priceFront = document.createElement('h4');
+    priceFront.classList.add('front__cost');
+    priceFront.innerHTML = price;
+    frequency.replaceWith(priceFront);
+  });
+};
+
+window.addEventListener('DOMContentLoaded', () => {
+  if (window.innerWidth <= 600) {
+   replacePrice()
+  }
+});
+
+window.addEventListener('resize', () => {
+  if (window.innerWidth <= 600) {
+    replacePrice()
+  } 
 });

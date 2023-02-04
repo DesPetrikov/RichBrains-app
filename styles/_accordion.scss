@@ -1,7 +1,9 @@
 @import './mixins';
+@import './variables';
 
 .accordion {
-  flex: 0 0 286px;
+  max-width: 286px;
+  min-width: 286px;
   height: 100%;
   padding: 30px 15px 30px 15px;
   background-color: #ffffff;
@@ -10,6 +12,17 @@
     .accordion__title {
       display: flex;
       margin-bottom: 19px;
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 50%;
+        right: 14px;
+        padding: 3px;
+        border: solid #3e3e3e;
+        border-width: 0 1px 1px 0;
+        transform: rotate(-45deg) translateY(-50%);
+      }
       .accordion__icon {
         margin-right: 9px;
       }
@@ -28,7 +41,6 @@
     border-top: 1px solid #ececec;
     border-bottom: 1px solid #ececec;
     margin-bottom: 20px;
-    //  padding-bottom: 6px;
     padding-top: 12px;
     .accordion__item {
       padding-left: 10px;
@@ -73,7 +85,7 @@
           &_active,
           &_active:hover {
             background-color: rgb(37, 150, 9, 0.15);
-				color: #259609;
+            color: #259609;
           }
           &:hover {
             border-radius: 3px;
@@ -111,5 +123,66 @@
     @include textStyle('Helvetica', sans-serif, 700, 14px, 16px, normal);
     color: #259609;
     cursor: pointer;
+  }
+  &__items_hidden,
+  &__main-button_hidden {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .accordion {
+    max-width: 329px;
+    min-width: 329px;
+    padding: 0;
+	 
+    &__header {
+      padding: 16px 0 14px 26px;
+      background: #f1f1f1;
+      border-radius: 3px;
+		cursor: pointer;
+      .accordion__title {
+        margin: 0;
+		  cursor: pointer;
+		  &::after {
+			right: 24px;
+		  }
+        .accordion__icon {
+        }
+        & h3 {
+          @include textStyle('Helvetica', sans-serif, 500, 16px, 22px, normal);
+          color: black;
+        }
+      }
+    }
+    &__items {
+      .accordion__item {
+        .item__title {
+          &:hover {
+          }
+          &::after {
+          }
+        }
+        .item__content {
+          .item__button {
+            &_active,
+            &_active:hover {
+            }
+            &:hover {
+            }
+          }
+        }
+        .item__input {
+          &:checked ~ .item__content {
+          }
+          &:checked ~ .item__title {
+          }
+          &:checked ~ .item__title::after {
+          }
+        }
+      }
+    }
+    &__main-button {
+    }
   }
 }

@@ -1,3 +1,5 @@
+const accordionContainer = document.getElementById('accordion');
+
 const accordion = {
   titleDesktop: 'CAREERS',
   titleMobile: 'CHOOSE YOUR CAREER',
@@ -38,7 +40,7 @@ const accordion = {
       id: 'career-6',
       title: 'Marketing & <br> Communications',
       subtitles: [
-        { subtitle: 'Marketologist' },
+        { subtitle: 'Marketing specialist' },
         { subtitle: 'Human Resource Manager' },
       ],
     },
@@ -57,23 +59,56 @@ const accordion = {
   mainBtnTitle: 'show all programmes',
 };
 
-const accordionContainer = document.getElementById('accordion');
-
 const accordionTemplate = Handlebars.compile(
   document.getElementById('accordion-template').innerHTML
 );
-
 const accordionFilled = accordionTemplate(accordion, { noEscape: true });
 accordionContainer.innerHTML = accordionFilled;
 
 const allProfessions = accordionContainer.querySelectorAll('.item__button');
 
 allProfessions.forEach((profession) => {
-	profession.addEventListener('click', () => {
-		if (!profession.classList.contains('item__button_active')) {
-			profession.classList.add('item__button_active');
-		 } else {
-			profession.classList.remove('item__button_active');
-		 }
-	})
+  profession.addEventListener('click', () => {
+    profession.classList.toggle('item__button_active');
+  });
+});
+
+const accordionMainBtn = accordionContainer.querySelector(
+  '.accordion__main-button'
+);
+const accordionItemsContainer =
+  accordionContainer.querySelector('.accordion__items');
+const accordionHeader = accordionContainer.querySelector('.accordion__header');
+const accordionHeaderTextContainer = accordionContainer.querySelector(
+  '.accordion__title-text'
+);
+
+window.addEventListener('DOMContentLoaded', () => {
+    window.innerWidth <= 600 ? accordion.titleMobile : accordion.titleDesktop;
+  if (window.innerWidth <= 600) {
+    accordionItemsContainer.classList.add('accordion__items_hidden');
+    accordionMainBtn.classList.add('accordion__main-button_hidden');
+    accordionHeaderTextContainer.innerHTML = accordion.titleMobile;
+  } else {
+    accordionHeaderTextContainer.innerHTML = accordion.titleDesktop;
+  }
+});
+
+window.addEventListener('resize', () => {
+  if (window.innerWidth <= 600) {
+    accordionItemsContainer.classList.add('accordion__items_hidden');
+    accordionMainBtn.classList.add('accordion__main-button_hidden');
+	 accordionHeaderTextContainer.innerHTML = accordion.titleMobile;
+  } else {
+    accordionItemsContainer.classList.remove('accordion__items_hidden');
+    accordionMainBtn.classList.remove('accordion__main-button_hidden');
+	 accordionHeaderTextContainer.innerHTML = accordion.titleDesktop;
+  }
+});
+
+accordionHeader.addEventListener('mousedown', () => {
+  if (window.innerWidth <= 600) {
+    accordionItemsContainer.classList.toggle('accordion__items_hidden');
+    accordionMainBtn.classList.toggle('accordion__main-button_hidden');
+  }
 });
