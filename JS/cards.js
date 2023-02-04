@@ -3,7 +3,7 @@ const cards = {
     {
       id: 'card-1',
       frontSide: {
-        logo: '../assets/icons/embratur.svg',
+        logo: './assets/icons/embratur.svg',
         category: 'Business & Management',
         profession: 'Master of Business Administration (CMI)',
         educationLevel: 'Postgraduate',
@@ -28,7 +28,7 @@ const cards = {
     {
       id: 'card-2',
       frontSide: {
-        logo: '../assets/icons/embratur.svg',
+        logo: './assets/icons/embratur.svg',
         category: 'Business & Management',
         profession: 'Master of Business Administration (CMI)',
         educationLevel: 'Postgraduate',
@@ -53,7 +53,7 @@ const cards = {
     {
       id: 'card-3',
       frontSide: {
-        logo: '../assets/icons/danisco.svg',
+        logo: './assets/icons/danisco.svg',
         category: 'Business & Management',
         profession: 'Master of Business Administration (CMI)',
         educationLevel: 'Postgraduate',
@@ -78,7 +78,7 @@ const cards = {
     {
       id: 'card-4',
       frontSide: {
-        logo: '../assets/icons/danisco.svg',
+        logo: './assets/icons/danisco.svg',
         category: 'Business & Management',
         profession: 'Master of Business Administration (CMI)',
         educationLevel: 'Postgraduate',
@@ -103,7 +103,7 @@ const cards = {
     {
       id: 'card-5',
       frontSide: {
-        logo: '../assets/icons/buffets.svg',
+        logo: './assets/icons/buffets.svg',
         category: 'Business & Management',
         profession: 'Master of Business Administration (CMI)',
         educationLevel: 'Postgraduate',
@@ -128,7 +128,7 @@ const cards = {
     {
       id: 'card-6',
       frontSide: {
-        logo: '../assets/icons/barco.svg',
+        logo: './assets/icons/barco.svg',
         category: 'Business & Management',
         profession: 'Master of Business Administration (CMI)',
         educationLevel: 'Postgraduate',
@@ -152,7 +152,7 @@ const cards = {
     },
   ],
   loaderTitle: 'More programmes',
-  loaderIcon: '../assets/icons/refresh.svg',
+  loaderIcon: './assets/icons/refresh.svg',
 };
 
 const cardsContainer = document.getElementById('cards');
