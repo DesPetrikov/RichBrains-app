@@ -1,4 +1,3 @@
-const accordionContainer = document.getElementById('accordion');
 
 const accordion = {
   titleDesktop: 'CAREERS',
@@ -59,14 +58,15 @@ const accordion = {
   mainBtnTitle: 'show all programmes',
 };
 
+const accordionContainer = document.getElementById('accordion');
 const accordionTemplate = Handlebars.compile(
   document.getElementById('accordion-template').innerHTML
 );
 const accordionFilled = accordionTemplate(accordion, { noEscape: true });
 accordionContainer.innerHTML = accordionFilled;
 
-const allProfessions = accordionContainer.querySelectorAll('.item__button');
 
+const allProfessions = accordionContainer.querySelectorAll('.item__button');
 allProfessions.forEach((profession) => {
   profession.addEventListener('click', () => {
     profession.classList.toggle('item__button_active');

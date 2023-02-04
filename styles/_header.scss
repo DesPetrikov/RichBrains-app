@@ -7,7 +7,6 @@
     @include textStyle('Playfair Display', serif, 400, 30px, 46px, normal);
   }
   @media screen and (max-width: 600px) {
-      margin: 12px 0 12px 0;
+    margin: 12px 0;
   }
 }
-

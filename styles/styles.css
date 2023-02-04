@@ -318,11 +318,11 @@ template {
   font-size: 30px;
   line-height: 46px;
   letter-spacing: normal;
-  color: #3E3E3E;
+  color: #3e3e3e;
 }
 @media screen and (max-width: 600px) {
   .header {
-    margin: 12px 0 12px 0;
+    margin: 12px 0;
   }
 }
 
@@ -354,17 +354,6 @@ template {
   display: flex;
   margin-bottom: 19px;
 }
-.accordion__header .accordion__title::after {
-  content: "";
-  display: block;
-  position: absolute;
-  top: 50%;
-  right: 14px;
-  padding: 3px;
-  border: solid #3e3e3e;
-  border-width: 0 1px 1px 0;
-  transform: rotate(-45deg) translateY(-50%);
-}
 .accordion__header .accordion__title .accordion__icon {
   margin-right: 9px;
 }
@@ -374,45 +363,43 @@ template {
   font-size: 13px;
   line-height: 25px;
   letter-spacing: normal;
-  color: #3E3E3E;
+  color: #3e3e3e;
   color: #259609;
 }
 .accordion__header .accordion__title #acc-close {
+  position: absolute;
+  width: 0;
+  height: 0;
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
-  width: 0;
-  height: 0;
 }
-.accordion .accordion__items {
-  border-top: 1px solid #ececec;
-  border-bottom: 1px solid #ececec;
+.accordion__items {
   margin-bottom: 20px;
   padding-top: 12px;
+  border-top: 1px solid #ececec;
+  border-bottom: 1px solid #ececec;
 }
-.accordion .accordion__items .accordion__item {
-  padding-left: 10px;
-  padding-right: 7px;
-  padding-top: 12px;
-  padding-bottom: 12px;
+.accordion__items .accordion__item {
+  padding: 12px 7px 12px 10px;
 }
-.accordion .accordion__items .accordion__item .item__title {
+.accordion__items .accordion__item .item__title {
   position: relative;
   display: block;
+  cursor: pointer;
   font-family: "Helvetica", sans-serif;
   font-weight: 700;
   font-size: 16px;
   line-height: 22px;
   letter-spacing: normal;
-  color: #3E3E3E;
-  cursor: pointer;
+  color: #3e3e3e;
   transition: background 0.5s ease-out;
 }
-.accordion .accordion__items .accordion__item .item__title:hover {
+.accordion__items .accordion__item .item__title:hover {
   border-radius: 3px;
   background-color: #f2f2f2;
 }
-.accordion .accordion__items .accordion__item .item__title::after {
+.accordion__items .accordion__item .item__title::after {
   content: "";
   display: block;
   position: absolute;
@@ -423,11 +410,11 @@ template {
   border-width: 0 1px 1px 0;
   transform: rotate(-45deg) translateY(-50%);
 }
-.accordion .accordion__items .accordion__item .item__content {
+.accordion__items .accordion__item .item__content {
   display: none;
   margin-top: 12px;
 }
-.accordion .accordion__items .accordion__item .item__content .item__button {
+.accordion__items .accordion__item .item__content .item__button {
   all: unset;
   display: block;
   width: 100%;
@@ -438,32 +425,32 @@ template {
   font-size: 14px;
   line-height: 22px;
   letter-spacing: normal;
-  color: #3E3E3E;
+  color: #3e3e3e;
   transition: background 0.5s ease-out;
 }
-.accordion .accordion__items .accordion__item .item__content .item__button_active, .accordion .accordion__items .accordion__item .item__content .item__button_active:hover {
+.accordion__items .accordion__item .item__content .item__button_active, .accordion__items .accordion__item .item__content .item__button_active:hover {
   background-color: rgba(37, 150, 9, 0.15);
   color: #259609;
 }
-.accordion .accordion__items .accordion__item .item__content .item__button:hover {
+.accordion__items .accordion__item .item__content .item__button:hover {
   border-radius: 3px;
   background-color: #f2f2f2;
 }
-.accordion .accordion__items .accordion__item .item__input {
+.accordion__items .accordion__item .item__input {
   position: absolute;
+  width: 0;
+  height: 0;
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
-  width: 0;
-  height: 0;
 }
-.accordion .accordion__items .accordion__item .item__input:checked ~ .item__content {
+.accordion__items .accordion__item .item__input:checked ~ .item__content {
   display: block;
 }
-.accordion .accordion__items .accordion__item .item__input:checked ~ .item__title {
+.accordion__items .accordion__item .item__input:checked ~ .item__title {
   color: #259609;
 }
-.accordion .accordion__items .accordion__item .item__input:checked ~ .item__title::after {
+.accordion__items .accordion__item .item__input:checked ~ .item__title::after {
   transform: rotate(45deg) translateY(-50%);
   border-color: #259609;
 }
@@ -480,7 +467,7 @@ template {
   font-size: 14px;
   line-height: 16px;
   letter-spacing: normal;
-  color: #3E3E3E;
+  color: #3e3e3e;
   color: #259609;
   cursor: pointer;
 }
@@ -505,7 +492,15 @@ template {
     cursor: pointer;
   }
   .accordion__header .accordion__title::after {
-    right: 24px;
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 14px;
+    padding: 3px;
+    border: solid #3e3e3e;
+    border-width: 0 1px 1px 0;
+    transform: rotate(-45deg) translateY(-50%);
   }
   .accordion__header .accordion__title h3 {
     font-family: "Helvetica", sans-serif;
@@ -513,8 +508,7 @@ template {
     font-size: 16px;
     line-height: 22px;
     letter-spacing: normal;
-    color: #3E3E3E;
-    color: black;
+    color: #3e3e3e;
   }
 }
 .cards {
@@ -522,36 +516,34 @@ template {
   flex-wrap: wrap;
   justify-content: center;
   align-content: flex-start;
-  -moz-column-gap: 20px;
-       column-gap: 20px;
-  row-gap: 20px;
+  gap: 20px;
 }
-.cards .cards__loader {
-  flex: 0 0 100%;
-  margin-top: 20px;
-  text-align: center;
-}
-.cards .cards__loader .loader__text {
-  font-family: "Helvetica", sans-serif;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 15px;
-  letter-spacing: normal;
-  color: #3E3E3E;
-  text-transform: uppercase;
-  cursor: pointer;
-}
-.cards .cards__loader .loader__icon {
-  margin-left: 5px;
-  vertical-align: bottom;
-  cursor: pointer;
-}
-
 @media screen and (max-width: 600px) {
   .cards {
     min-width: 329px;
   }
 }
+.cards__loader {
+  flex: 0 0 100%;
+  margin-top: 20px;
+  text-align: center;
+}
+.cards__loader .loader__text {
+  font-family: "Helvetica", sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 15px;
+  letter-spacing: normal;
+  color: #3e3e3e;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.cards__loader .loader__icon {
+  margin-left: 5px;
+  vertical-align: bottom;
+  cursor: pointer;
+}
+
 .card {
   position: relative;
   width: 282px;
@@ -601,7 +593,7 @@ template {
   font-size: 14px;
   line-height: 16px;
   letter-spacing: normal;
-  color: #3E3E3E;
+  color: #3e3e3e;
 }
 .card__front, .card__back {
   position: absolute;
@@ -636,7 +628,7 @@ template {
   font-size: 13px;
   line-height: 20px;
   letter-spacing: normal;
-  color: #3E3E3E;
+  color: #3e3e3e;
   color: #259609;
 }
 .card__front .front__content .front__profession {
@@ -646,7 +638,7 @@ template {
   font-size: 20px;
   line-height: 30px;
   letter-spacing: normal;
-  color: #3E3E3E;
+  color: #3e3e3e;
 }
 .card__front .front__content .front__education,
 .card__front .front__content .front__frequency {
@@ -662,7 +654,7 @@ template {
   font-size: 14px;
   line-height: 16px;
   letter-spacing: normal;
-  color: #3E3E3E;
+  color: #3e3e3e;
 }
 .card__front .front__content .front__education {
   margin-bottom: 2px;
@@ -722,7 +714,7 @@ template {
   font-size: 16px;
   line-height: 22px;
   letter-spacing: normal;
-  color: #3E3E3E;
+  color: #3e3e3e;
   color: #ffffff;
 }
 .card__back .back__content .back__duration,
@@ -732,7 +724,7 @@ template {
   font-size: 14px;
   line-height: 22px;
   letter-spacing: normal;
-  color: #3E3E3E;
+  color: #3e3e3e;
   color: #ffffff;
 }
 .card__back .back__content .back__min-duration,
@@ -743,7 +735,7 @@ template {
   font-size: 14px;
   line-height: 22px;
   letter-spacing: normal;
-  color: #3E3E3E;
+  color: #3e3e3e;
   color: #ffffff;
 }
 .card__back .back__content .back__max-duration {
@@ -759,11 +751,11 @@ template {
   font-size: 32px;
   line-height: 44px;
   letter-spacing: normal;
-  color: #3E3E3E;
+  color: #3e3e3e;
   color: #ffffff;
 }
 .card__back .back__content .back__button {
-  background-color: #ffffff;
+  background: #ffffff;
   color: #259609;
 }
 
@@ -839,7 +831,7 @@ template {
     font-size: 16px;
     line-height: 22px;
     letter-spacing: normal;
-    color: #3E3E3E;
+    color: #3e3e3e;
   }
   .card__front .front__content .front__education,
 .card__front .front__content .front__frequency {
@@ -855,7 +847,7 @@ template {
     font-size: 14px;
     line-height: 16px;
     letter-spacing: normal;
-    color: #3E3E3E;
+    color: #3e3e3e;
   }
   .card__front .front__content .front__education {
     margin-bottom: 67px;
@@ -873,7 +865,7 @@ template {
     font-size: 16px;
     line-height: 22px;
     letter-spacing: normal;
-    color: #3E3E3E;
+    color: #3e3e3e;
   }
 }
 @font-face {

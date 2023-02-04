@@ -156,22 +156,22 @@ const cards = {
 };
 
 const cardsContainer = document.getElementById('cards');
+
 const cardsTemplate = Handlebars.compile(
   document.getElementById('cards-template').innerHTML
 );
-
 const filledCards = cardsTemplate(cards);
 cardsContainer.innerHTML = filledCards;
 
-const allCards = cardsContainer.querySelectorAll('.card');
 
-allCards.forEach((card, _, arr) => {
+const allCards = cardsContainer.querySelectorAll('.card');
+allCards.forEach((card) => {
   card.addEventListener('click', () => {
     card.classList.toggle('card_active');
   });
 });
 
-const replacePrice = (cards) => {
+const replacePrice = () => {
   allCards.forEach((card, idx) => {
     const frequency = card.querySelector('.front__frequency');
     const price = card.querySelector('.back__cost').innerHTML;
@@ -190,6 +190,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
 window.addEventListener('resize', () => {
   if (window.innerWidth <= 600) {
-    replacePrice()
+	replacePrice()
   } 
 });
