@@ -2,7 +2,7 @@
 const accordion = {
   titleDesktop: 'CAREERS',
   titleMobile: 'CHOOSE YOUR CAREER',
-  titleIcon: '../assets/icons/education.svg',
+  titleIcon: './assets/icons/education.svg',
   careerList: [
     {
       id: 'career-1',
