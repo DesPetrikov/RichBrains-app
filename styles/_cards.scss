@@ -1,0 +1,26 @@
+@import './mixins';
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: flex-start;
+  gap: 20px;
+  @media screen and (max-width: 600px) {
+    min-width: 329px;
+  }
+  &__loader {
+    flex: 0 0 100%;
+    margin-top: 20px;
+    text-align: center;
+    .loader__text {
+      @include textStyle('Helvetica', sans-serif, 700, 14px, 15px, normal);
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+    .loader__icon {
+      margin-left: 5px;
+      vertical-align: bottom;
+      cursor: pointer;
+    }
+  }
+}

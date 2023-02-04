@@ -1,0 +1,125 @@
+@import './mixins';
+@import './variables';
+
+.accordion {
+  max-width: 286px;
+  min-width: 286px;
+  height: 100%;
+  padding: 30px 15px 30px 15px;
+  background-color: $accordion-bg-color-desktop;
+  &__header {
+    position: relative;
+    .accordion__title {
+      display: flex;
+      margin-bottom: 19px;
+      .accordion__icon {
+        margin-right: 9px;
+      }
+      & h3 {
+        @include textStyle('Helvetica', sans-serif, 400, 13px, 25px, normal);
+        color: $accordion-header-title-color;
+      }
+      & #acc-close {
+        @include hideElement();
+      }
+    }
+  }
+  &__items {
+    margin-bottom: 20px;
+    padding-top: 12px;
+    border-top: 1px solid $accordion-border-color;
+    border-bottom: 1px solid $accordion-border-color;
+    .accordion__item {
+      padding: 12px 7px 12px 10px;
+      .item__title {
+        position: relative;
+        display: block;
+        cursor: pointer;
+        @include textStyle('Helvetica', sans-serif, 700, 16px, 22px, normal);
+        transition: background 0.5s ease-out;
+        &:hover {
+          border-radius: 3px;
+          background-color: $accordion-hover-item-bg-color;
+        }
+        &::after {
+          @include createArrow(5px);
+        }
+      }
+      .item__content {
+        display: none;
+        margin-top: 12px;
+        .item__button {
+          all: unset;
+          display: block;
+          width: 100%;
+          padding: 10px 0px 10px 12px;
+          cursor: pointer;
+          @include textStyle('Helvetica', sans-serif, 400, 14px, 22px, normal);
+          transition: background 0.5s ease-out;
+          &_active,
+          &_active:hover {
+            background-color: $accordion-active-item-bg-color;
+            color: $accordion-active-item-text-color;
+          }
+          &:hover {
+            border-radius: 3px;
+            background-color: $accordion-hover-item-bg-color;
+          }
+        }
+      }
+      .item__input {
+        @include hideElement();
+        &:checked ~ .item__content {
+          display: block;
+        }
+        &:checked ~ .item__title {
+          color: $accordion-active-item-text-color;
+        }
+        &:checked ~ .item__title::after {
+          transform: rotate(45deg) translateY(-50%);
+          border-color: $accordion-active-arrow-color;
+        }
+      }
+    }
+  }
+  &__main-button {
+    all: unset;
+    padding: 15px 0;
+    width: 100%;
+    text-transform: uppercase;
+    text-align: center;
+    border: 1px solid $accordion-main-btn-border-color;
+    border-radius: 3px;
+    @include textStyle('Helvetica', sans-serif, 700, 14px, 16px, normal);
+    color: $accordion-main-btn-text-color;
+    cursor: pointer;
+  }
+  &__items_hidden,
+  &__main-button_hidden {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .accordion {
+    max-width: 329px;
+    min-width: 329px;
+    padding: 0;
+    &__header {
+      padding: 16px 0 14px 26px;
+      background: $mobile-accordion-header-bg;
+      border-radius: 3px;
+      cursor: pointer;
+      .accordion__title {
+        margin: 0;
+        cursor: pointer;
+        &::after {
+          @include createArrow(14px);
+        }
+        & h3 {
+          @include textStyle('Helvetica', sans-serif, 500, 16px, 22px, normal);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,293 @@
+@import './mixins';
+.card {
+  position: relative;
+  width: 282px;
+  height: 405px;
+  cursor: pointer;
+  background: $card-front-bg;
+  box-shadow: 0px 4px 11px $card-inactive-shadow-color;
+  border-radius: 2px;
+  border-top: 6px solid $card-border-color;
+  &.card_active .card__back,
+  &.card_active:hover .card__back {
+    background: $card-back-bg;
+    box-shadow: 0px 22px 37px $card-active-shadow-color;
+    transform: none;
+    .back__action-btn {
+      &::before {
+        transform: rotate(45deg);
+      }
+      &::after {
+        transform: rotate(-45deg);
+      }
+    }
+    .back__button {
+      color: $card-back-btn-text-color;
+      background: $card-back-btn-bg-color;
+    }
+  }
+  &.card_active .card__front,
+  &.card_active:hover .card__front {
+    transform: none;
+  }
+  &:hover .card__front {
+    transform: perspective(600px) rotateY(-180deg);
+  }
+  &:hover .card__back {
+    background: $card-back-bg;
+    box-shadow: 0px 22px 37px $card-active-shadow-color;
+    transform: perspective(600px) rotateY(0deg);
+  }
+  .front__button,
+  .back__button {
+    all: unset;
+    width: 100%;
+    padding: 12px 0 15px 0;
+    text-align: center;
+    text-transform: uppercase;
+    border-radius: 3px;
+    @include textStyle('Helvetica', sans-serif, 700, 14px, 16px, normal);
+  }
+  &__front,
+  &__back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    backface-visibility: hidden;
+    transition: transform 0.5s linear;
+  }
+  &__front {
+    transform: perspective(600px) rotateY(0deg);
+    .front__content {
+      margin: 25px 30px 30px 30px;
+      .front__logo-block {
+        .front__action-btn {
+          display: none;
+        }
+        .front__logo {
+          display: block;
+          margin-left: auto;
+          margin-bottom: 27px;
+        }
+      }
+
+      .front__category {
+        margin-bottom: 8px;
+        text-transform: uppercase;
+        @include textStyle('Helvetica', sans-serif, 400, 13px, 20px, normal);
+        color: $card-front-category-color;
+      }
+      .front__profession {
+        margin-bottom: 77px;
+        @include textStyle('Helvetica', sans-serif, 700, 20px, 30px, normal);
+      }
+      .front__education,
+      .front__frequency {
+        display: flex;
+        align-items: center;
+        column-gap: 12px;
+        h4 {
+          @include textStyle('Helvetica', sans-serif, 400, 14px, 16px, normal);
+        }
+      }
+      .front__education {
+        margin-bottom: 2px;
+      }
+      .front__frequency {
+        margin-bottom: 30px;
+      }
+      .front__button {
+        background: $card-front-btn-bg;
+        color: $card-front-btn-text;
+      }
+    }
+  }
+  &__back {
+    color: $card-back-text-color;
+    transform: perspective(600px) rotateY(180deg);
+    .back__action-btn {
+      all: unset;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 30px;
+      height: 30px;
+      background: #ffffff;
+      border-radius: 50%;
+      opacity: 0.7;
+      cursor: pointer;
+      transition: all ease 0.5s;
+
+      &:hover {
+        opacity: 1;
+      }
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        top: 14px;
+        left: 7px;
+        display: block;
+        width: 16px;
+        height: 1px;
+        background: #259609;
+        transform: translate(-50%, -50%);
+      }
+      &::before {
+        transform: rotate(0deg);
+      }
+      &::after {
+        transform: rotate(-90deg);
+      }
+    }
+    .back__content {
+      margin: 25px 30px 30px 30px;
+      .back__direction {
+        padding-right: 50px;
+        margin-bottom: 17px;
+        @include textStyle('Helvetica', sans-serif, 700, 16px, 22px, normal);
+        color: $card-back-text-color;
+      }
+      .back__duration,
+      .back__start {
+        @include textStyle('Helvetica', sans-serif, 700, 14px, 22px, normal);
+        color: $card-back-text-color;
+      }
+      .back__min-duration,
+      .back__max-duration,
+      .back__start-dates {
+        @include textStyle('Helvetica', sans-serif, 400, 14px, 22px, normal);
+        color: $card-back-text-color;
+      }
+      .back__max-duration {
+        margin-bottom: 20px;
+      }
+      .back__start-dates {
+        margin-bottom: 31px;
+      }
+      .back__cost {
+        margin-bottom: 14px;
+        @include textStyle('Helvetica', sans-serif, 700, 32px, 44px, normal);
+        color: $card-back-text-color;
+      }
+      .back__button {
+        background: $card-back-btn-bg;
+        color: $card-back-btn-text;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .card {
+    width: 330px;
+    height: 330px;
+    &:hover .card__front,
+    &.card_active:hover .card__front,
+    &.card_active .card__front {
+      background: #f7f7f7;
+      transform: perspective(600px) rotateY(0deg);
+    }
+    &:hover .card__back,
+    &.card_active:hover .card__back,
+    &.card_active .card__back {
+      transform: perspective(600px) rotateY(180deg);
+    }
+    &.card_active .card__front .front__logo-block {
+      .front__action-btn {
+        opacity: 1;
+        &::before {
+          transform: rotate(45deg);
+        }
+        &::after {
+          transform: rotate(-45deg);
+        }
+      }
+    }
+
+    &__front {
+      .front__content {
+        margin: 16px 15px 20px 25px;
+        .front__logo-block {
+          display: flex;
+          justify-content: space-between;
+          .front__action-btn {
+            all: unset;
+            position: relative;
+            width: 30px;
+            height: 30px;
+            background: #259609;
+            border-radius: 50%;
+            opacity: 0.7;
+            cursor: pointer;
+            transition: all ease 0.5s;
+
+            &:hover {
+              opacity: 1;
+            }
+            &::before,
+            &::after {
+              content: '';
+              position: absolute;
+              top: 14px;
+              left: 7px;
+              display: block;
+              width: 16px;
+              height: 1px;
+              background: #ffffff;
+              transform: translate(-50%, -50%);
+            }
+            &::before {
+              transform: rotate(0deg);
+            }
+            &::after {
+              transform: rotate(-90deg);
+            }
+          }
+          .front__logo {
+            margin-bottom: 12px;
+          }
+        }
+        .front__category {
+          margin-bottom: 8px;
+        }
+        .front__profession {
+          margin-bottom: 6px;
+          @include textStyle('Helvetica', sans-serif, 700, 16px, 22px, normal);
+        }
+        .front__education,
+        .front__frequency {
+          display: flex;
+          align-items: center;
+          column-gap: 12px;
+          h4 {
+            @include textStyle(
+              'Helvetica',
+              sans-serif,
+              400,
+              14px,
+              16px,
+              normal
+            );
+          }
+        }
+        .front__education {
+          margin-bottom: 67px;
+          img {
+            display: none;
+          }
+        }
+        .front__frequency {
+          display: none;
+        }
+        .front__cost {
+          margin-bottom: 14px;
+          @include textStyle('Helvetica', sans-serif, 700, 16px, 22px, normal);
+        }
+      }
+    }
+  }
+}

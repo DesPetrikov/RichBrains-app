@@ -1,0 +1,12 @@
+@import './mixins';
+
+.header {
+  margin: 57px 0 33px 0;
+  &_title {
+    margin: 0;
+    @include textStyle('Playfair Display', serif, 400, 30px, 46px, normal);
+  }
+  @media screen and (max-width: 600px) {
+    margin: 12px 0;
+  }
+}

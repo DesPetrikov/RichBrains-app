@@ -1,0 +1,27 @@
+@mixin textStyle($font, $generic, $weight, $size, $height, $spacing) {
+  font-family: $font, $generic;
+  font-weight: $weight;
+  font-size: $size;
+  line-height: $height;
+  letter-spacing: $spacing;
+  color: #3e3e3e;
+}
+
+@mixin createArrow($rightShift) {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: $rightShift;
+  padding: 3px;
+  border: solid #3e3e3e;
+  border-width: 0 1px 1px 0;
+  transform: rotate(-45deg) translateY(-50%);
+}
+
+@mixin hideElement() {
+	position: absolute;
+	width: 0;
+	height: 0;
+	appearance: none;
+}

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles/styles.css" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"
+      integrity="sha512-RNLkV3d+aLtfcpEyFG8jRbnWHxUqVZozacROI4J2F1sTaDqo1dPQYs01OMi1t1w9Y2FdbSCDSQ2ZVdAC8bzgAg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script defer src="./JS/accordion.js"></script>
+    <script defer src="./JS/cards.js"></script>
+    <title>RichBrains app</title>
+  </head>
+  <body>
+    <header class="content-wrapper header">
+      <h1 class="header_title">Find Your Course</h1>
+    </header>
+
+    <main class="content-wrapper main">
+      <script id="accordion-template" type="text/x-handlebars-template">
+        <header class='accordion__header'>
+          <label class='accordion__title'>
+            <input type='checkbox' id='acc-close' />
+            <img
+              src={{titleIcon}}
+              alt='education icon'
+              class='accordion__icon'
+            />
+            <h3 class='accordion__title-text'></h3>
+          </label>
+        </header>
+        <div class='accordion__items'>
+          {{#each careerList}}
+            <div class='accordion__item'>
+              <input class='item__input' type='checkbox' id={{this.id}} />
+              <label class='item__title' for={{this.id}}>{{{title}}}</label>
+              <div class='item__content'>
+                {{#each subtitles}}
+                  <button class='item__button'>{{subtitle}}</button>
+                {{/each}}
+              </div>
+            </div>
+          {{/each}}
+        </div>
+        <button
+          type='button'
+          class='accordion__main-button'
+        >{{mainBtnTitle}}</button>
+      </script>
+      <nav class="accordion" id="accordion"></nav>
+
+      <script id="cards-template" type="text/x-handlebars-template">
+        {{#each cardsList}}
+          <div class='card'>
+            <div class='card__front'>
+              <div class='front__content'>
+                <div class='front__logo-block'>
+                  <button class='front__action-btn'></button>
+                  <img
+                    src={{frontSide.logo}}
+                    alt='embatur icon'
+                    class='front__logo'
+                  /></div>
+
+                <h3 class='front__category'>{{frontSide.category}}</h3>
+                <h2 class='front__profession'>{{frontSide.profession}}</h2>
+                <div class='front__education'>
+                  <img
+                    src='./assets/icons/education_card.svg'
+                    alt='education icon'
+                  />
+                  <h4>{{frontSide.educationLevel}}</h4>
+                </div>
+                <div class='front__frequency'>
+                  <img
+                    src='./assets/icons/schedule_card.svg'
+                    alt='schedule icon'
+                  />
+                  <h4>{{frontSide.frequency}}</h4>
+                </div>
+                <button
+                  type='button'
+                  class='front__button'
+                >{{frontSide.buttonTitle}}</button>
+              </div>
+            </div>
+            <div class='card__back'>
+              <button class='back__action-btn'></button>
+              <div class='back__content'>
+                <h3 class='back__direction'>{{backSide.direction}}</h3>
+                <h4 class='back__duration'>{{backSide.duration.title}}</h4>
+                <h5 class='back__min-duration'>{{backSide.duration.min}}</h5>
+                <h5 class='back__max-duration'>{{backSide.duration.max}}</h5>
+                <h4 class='back__start'>{{backSide.start.title}}</h4>
+                <h5 class='back__start-dates'>{{backSide.start.dates}}</h5>
+                <h2 class='back__cost'>{{backSide.cost}}</h2>
+                <button
+                  type='button'
+                  class='back__button'
+                >{{backSide.buttonTitle}}</button>
+              </div>
+            </div>
+          </div>
+        {{/each}}
+        <div class='cards__loader'>
+          <span class='loader__text'>{{{loaderTitle}}}</span>
+          <img src={{loaderIcon}} class='loader__icon' alt='loader icon' />
+        </div>
+      </script>
+      <div class="cards" id="cards"></div>
+    </main>
+  </body>
+</html>
